@@ -57,13 +57,13 @@
                             <button class="dropdown-item">Configuración</button>
                         </li>
                         <li>
-                            <asp:Button ID="Button1" runat="server" CssClass="dropdown-item" Text="Perfil" />
+                            <asp:Button runat="server" OnClick="Perfil" CssClass="dropdown-item" Text="Perfil" />
                         </li>
                         <li>
                             <hr class="dropdown-divider"/>
                         </li>
                         <li>
-                            <asp:Button ID="Button2" runat="server" CssClass="dropdown-item" Text="Cerrar sesión" />
+                            <asp:Button ID="cerrarSesion" OnClick="cerrarSesion_Click" runat="server" CssClass="dropdown-item" Text="Cerrar sesión" />
                         </li>
                     </ul>
                 </div>

@@ -22,7 +22,7 @@ namespace PruebaLogin.Sources.Pages
                 using (con)
                 {
                     SqlCommand cmd = new SqlCommand("Perfil", con);//me trae todos los datos de ambas tablas
-                    cmd.Parameters.AddWithValue("@id", SqlDbType.VarChar).Value = id;
+                    cmd.Parameters.AddWithValue("@id", SqlDbType.Int).Value = id;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -35,6 +35,19 @@ namespace PruebaLogin.Sources.Pages
             {
                 Response.Redirect("/Sources/Pages/FrmLogin.aspx");
             }
+        }
+
+        protected void Perfil(object sender, EventArgs e)
+        {
+            Response.Redirect("/Sources/Pages/FrmPerfil.aspx");
+        }
+
+        protected void cerrarSesion_Click(object sender, EventArgs e)
+        {
+            //primero eliminamos session
+            Session.Remove("usuarioLogueado"); //atencion parentesis , no corchetes
+            //luego redirijimos
+            Response.Redirect("/Sources/Pages/FrmLogin.aspx");
         }
     }
 }
