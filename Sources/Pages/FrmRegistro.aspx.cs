@@ -76,11 +76,11 @@ namespace PruebaLogin.Sources.Pages
             {
                 lblError.Text = "El tamaño de la imagen no puede ser mayor a 10 Mb!";
             }
-            else
+            else //si paso todas las validaciones llega aqui
             {
                 //byte[] imagen: Declara una variable llamada imagen que es un arreglo de bytes 
                 //esta almacena datos binarios como los de una imagen
-                //la propiedad FileBytes devuelve los datos del archivo asociado con FUImage en forma de un arreglo de bytes. 
+                //la propiedad FileBytes devuelve los datos del archivo en FUImage en forma de un arreglo de bytes. 
                 byte[] imagen = FUImage.FileBytes;
                 string patron = "InfoToolsSV";
                 using (con)
