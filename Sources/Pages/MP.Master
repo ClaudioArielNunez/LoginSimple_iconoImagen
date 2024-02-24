@@ -36,6 +36,9 @@
                     <li><a href="#" class="nav-link px-2 link-dark">Usuarios</a></li>
                     <li><a href="#" class="nav-link px-2 link-dark">Productos</a></li>
                 </ul>
+                <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                    <asp:TextBox runat="server" CssClass="form-control" placeholder="Buscar..."></asp:TextBox>
+                </div>
                 <div class="col-12 col-lg-auto me-lg-auto justify-content-center">
                     <button class="btn btn-light" type="submit">
                         <i class="bi bi-search"></i>
@@ -63,7 +66,7 @@
                             <hr class="dropdown-divider"/>
                         </li>
                         <li>
-                            <asp:Button ID="cerrarSesion" OnClick="cerrarSesion_Click" runat="server" CssClass="dropdown-item" Text="Cerrar sesión" />
+                            <asp:Button ID="cerrarSesion" OnClick="cerrarSesion_Click1" runat="server" CssClass="dropdown-item" Text="Cerrar sesión" />
                         </li>
                     </ul>
                 </div>

@@ -26,7 +26,7 @@ namespace PruebaLogin.Sources.Pages
 
         readonly SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
 
-        protected void Registrar_Click(object sender, EventArgs e)
+        protected void Registrar_Click1(object sender, EventArgs e)
         {
             int tamanioImg = int.Parse(FUImage.FileContent.Length.ToString());
             string contraseniaSinVerificar = tbClave.Text;
@@ -34,22 +34,24 @@ namespace PruebaLogin.Sources.Pages
             Regex numeros = new Regex(@"[0-9]");
             Regex especiales = new Regex("[!\"#\\$%&'()*+,-./:;=?@\\[\\]{|}~]");
 
+            con.Open();
             SqlCommand usuario = new SqlCommand("ContarUsuario", con);
             usuario.CommandType = CommandType.StoredProcedure;
-            usuario.Parameters.AddWithValue("@usuario", SqlDbType.VarChar).Value=tbUsuario.Text;
+            usuario.Parameters.AddWithValue("@usuario", SqlDbType.VarChar).Value = tbUsuario.Text;
+
             int user = Convert.ToInt32(usuario.ExecuteScalar());
             //validaciones , valida q los campos no queden vacios
-            if (txtNombre.Text == "" || txtApellido.Text == "" || txtFecha.Text == "" || tbUsuario.Text == "" )
+            if (txtNombre.Text == "" || txtApellido.Text == "" || txtFecha.Text == "" || tbUsuario.Text == "")
             {
                 lblError.Text = "Los campos no pueden quedar vacios!!!";
             }
             //valida que no haya usuarios con nombre repetidos
-            else if(user>=1)
+            else if (user >= 1)
             {
                 lblError.Text = "El usuario " + tbUsuario.Text + "ya existe!";
             }
             //valida q las claves sean iguales
-            else if(tbClave.Text != tbClve2.Text)
+            else if (tbClave.Text != tbClve2.Text)
             {
                 lblError.Text = "Las contraseñas no coinciden";
             }
@@ -89,20 +91,26 @@ namespace PruebaLogin.Sources.Pages
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Nombres", SqlDbType.VarChar).Value = txtNombre.Text;
-                        cmd.Parameters.AddWithValue("@Apellidos", SqlDbType.VarChar).Value=txtApellido.Text;
-                        cmd.Parameters.AddWithValue("@Fecha", SqlDbType.Date).Value=txtFecha.Text;
+                        cmd.Parameters.AddWithValue("@Apellidos", SqlDbType.VarChar).Value = txtApellido.Text;
+                        cmd.Parameters.AddWithValue("@Fecha", SqlDbType.Date).Value = txtFecha.Text;
                         cmd.Parameters.AddWithValue("@Usuario", SqlDbType.VarChar).Value = tbUsuario.Text;
                         cmd.Parameters.AddWithValue("@Clave", SqlDbType.VarChar).Value = tbClave.Text;
                         cmd.Parameters.AddWithValue("@Patron", SqlDbType.VarChar).Value = patron; //linea 85
                         cmd.Parameters.AddWithValue("@IdUsuario", SqlDbType.Int).Value = 0;
                         cmd.Parameters.AddWithValue("@Imagen", SqlDbType.Image).Value = imagen;//linea 84
-                        con.Open();
+                        
                         cmd.ExecuteNonQuery();
-                        con.Close();
-                        Response.Redirect("/Sources/Pages/FrmLogin.aspx");
+                        
                     }
-
+                    con.Close();
+                    Response.Redirect("/Sources/Pages/FrmLogin.aspx");
                 }
+            }
         }
+
+
+
+
+
     }
 }

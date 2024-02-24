@@ -42,7 +42,8 @@ namespace PruebaLogin.Sources.Pages
             Response.Redirect("/Sources/Pages/FrmPerfil.aspx");
         }
 
-        protected void cerrarSesion_Click(object sender, EventArgs e)
+       
+        protected void cerrarSesion_Click1(object sender, EventArgs e)
         {
             //primero eliminamos session
             Session.Remove("usuarioLogueado"); //atencion parentesis , no corchetes

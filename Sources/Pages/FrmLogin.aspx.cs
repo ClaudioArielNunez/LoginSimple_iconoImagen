@@ -26,7 +26,7 @@ namespace PruebaLogin.Sources.Pages
         protected void Iniciar(object sender, EventArgs e)
         {
             //validamos campos vacios
-            if (tbUsuario.Text != "" || tbClave.Text != "")
+            if (tbUsuario.Text == "" || tbClave.Text == "")
             {
                 lblError.Text = "Los campos no pueden quedar vacios";
             }

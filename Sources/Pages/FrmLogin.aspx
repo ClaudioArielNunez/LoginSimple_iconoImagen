@@ -12,18 +12,24 @@
     <title>Inicio de Sesión</title>
 </head>
 <body>
-    <form id="FrmLogin" class="container d-flex justity-content-center align-items-center" runat="server">
+    <br />
+    <br />
+    <br />
+    <br />
+    <form id="FrmLogin" class="container d-flex justify-content-center align-items-center " runat="server">
         <div class="col-5">
             <div class="form-control card card-body align-items-center h3">
+                <div class="modal-title align-content-center h3">
                 <asp:Label runat="server" Text="Inicio de Sesión" Font-Size="Larger"></asp:Label>
-            </div>
+                </div>
+
             <br />
             <div class="input-group">
                 <asp:TextBox ID="tbUsuario" CssClass="form-control" placeholder="User" runat="server"></asp:TextBox>
             </div>
             <br />
             <div class="input-group">
-                <asp:TextBox ID="tbClave" CssClass="form-control" placeholder="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="tbClave" CssClass="form-control" TextMode="Password" placeholder="Password" runat="server"></asp:TextBox>
             </div>
             <br />
             <div class="input-group">
@@ -36,6 +42,8 @@
                 <br />
                 <asp:Label  runat="server" Text="¿No tienes una cuenta?, Registrate"></asp:Label>
                 <asp:LinkButton runat="server" OnClick="Registrarse" Text="Aquí"></asp:LinkButton>
+            </div>
+
             </div>
         </div>
     </form>
