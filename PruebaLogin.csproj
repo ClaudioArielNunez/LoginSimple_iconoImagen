@@ -70,19 +70,35 @@
     <Content Include="Sources\Imagenes\icono-perfil-vacio.jpg" />
     <Content Include="Sources\Imagenes\logo.png" />
     <Content Include="Sources\Javascript\script.js" />
+    <Content Include="Sources\Pages\FrmImagen.aspx" />
     <Content Include="Sources\Pages\FrmLogin.aspx" />
+    <Content Include="Sources\Pages\FrmPerfil.aspx" />
     <Content Include="Sources\Pages\FrmRegistro.aspx" />
     <Content Include="Sources\Pages\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\Pages\FrmImagen.aspx.cs">
+      <DependentUpon>FrmImagen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sources\Pages\FrmImagen.aspx.designer.cs">
+      <DependentUpon>FrmImagen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sources\Pages\FrmLogin.aspx.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Sources\Pages\FrmLogin.aspx.designer.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\Pages\FrmPerfil.aspx.cs">
+      <DependentUpon>FrmPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sources\Pages\FrmPerfil.aspx.designer.cs">
+      <DependentUpon>FrmPerfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sources\Pages\FrmRegistro.aspx.cs">
       <DependentUpon>FrmRegistro.aspx</DependentUpon>

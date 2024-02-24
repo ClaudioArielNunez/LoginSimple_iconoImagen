@@ -28,7 +28,7 @@ namespace PruebaLogin.Sources.Pages
                     SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                     dr.Read();
                     this.lblUsuario.Text = dr["Apellidos"].ToString() + ", " + dr["Nombres"].ToString();
-                    imgPerfil.ImageUrl = "/Sources/Pages/FrmImagen.aspx?id=" + id;
+                    imgPerfil.ImageUrl = "/Sources/Pages/FrmImagen.aspx?id=" + id; //POSIBLE ERROR-----------------
                 }
             }
             else
